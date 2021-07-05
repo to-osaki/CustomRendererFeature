@@ -30,12 +30,14 @@ namespace to.Lib
 			{
 				_requests.Enqueue(DefaultZone);
 			}
-			var clickZone = new CustomRenderTextureUpdateZone();
-			clickZone.needSwap = true;
-			clickZone.passIndex = passIndex;
-			clickZone.rotation = rotation;
-			clickZone.updateZoneCenter = center;
-			clickZone.updateZoneSize = size;
+			var clickZone = new CustomRenderTextureUpdateZone()
+			{
+				needSwap = true,
+				passIndex = passIndex,
+				rotation = rotation,
+				updateZoneCenter = center,
+				updateZoneSize = size,
+			};
 			_requests.Enqueue(clickZone);
 		}
 
@@ -56,12 +58,14 @@ namespace to.Lib
 
 			if (HasDefaultPass)
 			{
-				DefaultZone = new CustomRenderTextureUpdateZone();
-				DefaultZone.needSwap = true;
-				DefaultZone.passIndex = DefaultPassIndex;
-				DefaultZone.rotation = 0f;
-				DefaultZone.updateZoneCenter = new Vector2(0.5f, 0.5f);
-				DefaultZone.updateZoneSize = new Vector2(1f, 1f);
+				DefaultZone = new CustomRenderTextureUpdateZone()
+				{
+					needSwap = true,
+					passIndex = DefaultPassIndex,
+					rotation = 0f,
+					updateZoneCenter = new Vector2(0.5f, 0.5f),
+					updateZoneSize = new Vector2(1f, 1f),
+				};
 			}
 
 			if (UpdateMode == CustomRenderTextureUpdateMode.OnLoad && HasDefaultPass && _requests.Count == 0)
