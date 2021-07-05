@@ -18,6 +18,7 @@ namespace to.Lib
 
 		public CustomRenderTextureUpdateZoneSpace ZoneSpace => _targetTexture.updateZoneSpace;
 		public Vector2Int Size => new Vector2Int(_targetTexture.width, _targetTexture.height);
+		public Texture GetTexture() => TargetTexture;
 
 		bool HasDefaultPass => DefaultPassIndex >= 0;
 		CustomRenderTexture _targetTexture;
@@ -51,6 +52,7 @@ namespace to.Lib
 			{
 				_targetTexture = new CustomRenderTexture(Screen.width, Screen.height);
 				_targetTexture.updateZoneSpace = CustomRenderTextureUpdateZoneSpace.Pixel;
+				_targetTexture.doubleBuffered = true;
 			}
 			_targetTexture.initializationMode = CustomRenderTextureUpdateMode.OnDemand;
 			_targetTexture.updateMode = CustomRenderTextureUpdateMode.OnDemand;
